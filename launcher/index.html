@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTMLGame Launcher</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: Georgia, "Trebuchet MS", serif;
+        background:
+          radial-gradient(circle at top, #587962 0%, #173127 38%, #08110e 100%);
+        color: #f6f2df;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+      }
+
+      .shell {
+        width: min(100%, 420px);
+        display: grid;
+        gap: 14px;
+        padding: 24px;
+        border: 1px solid rgba(246, 242, 223, 0.2);
+        border-radius: 24px;
+        background: rgba(8, 17, 14, 0.84);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+      }
+
+      .hero {
+        display: grid;
+        gap: 4px;
+      }
+
+      .hero h1 {
+        margin: 0;
+        font-size: 34px;
+      }
+
+      .hero p,
+      .meta,
+      .status {
+        margin: 0;
+        color: #b7d2c2;
+      }
+
+      form,
+      .updates {
+        display: grid;
+        gap: 10px;
+      }
+
+      input,
+      select,
+      button {
+        width: 100%;
+        padding: 12px 14px;
+        border-radius: 12px;
+        border: 1px solid #456557;
+        background: #10241c;
+        color: #f6f2df;
+        font: inherit;
+      }
+
+      button {
+        border: none;
+        background: #d7c46e;
+        color: #08110e;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .actions {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+
+      .secondary {
+        background: #9aa9a1;
+      }
+
+      .accent {
+        background: #4d8f6f;
+      }
+
+      .status {
+        min-height: 20px;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <div class="hero">
+        <p class="meta" id="launcher-version">Launcher</p>
+        <h1>HTMLGame</h1>
+        <p>Electron launcher login, guest launch and update shell for the prototype client.</p>
+      </div>
+
+      <form id="launcher-form">
+        <input name="username" type="text" placeholder="Username" value="tester" />
+        <input name="password" type="password" placeholder="Password" value="secret123" />
+        <select name="classKey">
+          <option value="warrior">warrior</option>
+          <option value="mage">mage</option>
+          <option value="ranger">ranger</option>
+          <option value="cleric">cleric</option>
+        </select>
+        <div class="actions">
+          <button type="button" data-action="login" class="accent">Login</button>
+          <button type="button" data-action="register">Register</button>
+          <button type="button" data-action="guest" class="secondary">Guest</button>
+        </div>
+      </form>
+
+      <div class="updates">
+        <button type="button" id="check-updates" class="secondary">Check for updates</button>
+        <p class="meta" id="update-result">No update check started yet.</p>
+      </div>
+
+      <p class="status" id="launcher-status">Ready.</p>
+    </div>
+
+    <script type="module" src="./renderer.js"></script>
+  </body>
+  </html>

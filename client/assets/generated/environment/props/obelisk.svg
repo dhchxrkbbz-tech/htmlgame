@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" fill="none">
+  <defs>
+    <linearGradient id="goldTrim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f9e4aa"/>
+      <stop offset="100%" stop-color="#b88739"/>
+    </linearGradient>
+    <linearGradient id="shadowFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#000" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  
+  <ellipse cx="64" cy="118" rx="24" ry="8" fill="#000" fill-opacity="0.24"/>
+  <path d="M64 18 L86 54 L74 108 H54 L42 54 Z" fill="#44555e" stroke="#dce7ef" stroke-width="4"/>
+  <path d="M64 18 L64 108" stroke="#a8d3ff" stroke-opacity="0.6" stroke-width="3"/>
+  <path d="M50 64 H78" stroke="#c8dbeb" stroke-opacity="0.4" stroke-width="3"/>
+  <circle cx="64" cy="62" r="24" fill="#74d6ff" fill-opacity="0.12" filter="url(#softGlow)"/>
+
+</svg>

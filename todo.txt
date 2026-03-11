@@ -1,0 +1,64 @@
+HTMLGame next tasks
+
+1. Asset pipeline and art generation
+- Generate assets with Python.
+- Style target: AQW-inspired fantasy UI and character art.
+- Camera/look target: 2.5D presentation.
+- Needed assets:
+  - player class sprites
+  - enemy sprites
+  - environment tiles and props
+  - UI icons and frames
+  - inventory, guild, trader, status panel visuals
+- Deliverable:
+  - generated placeholder asset set inside client/assets/
+  - repeatable Python generation scripts
+
+2. UI system redesign
+- Rework the current UI into centered modal-style windows.
+- Add richer output and feedback text areas.
+- Use the provided reference images as layout direction.
+- Needed windows:
+  - inventory
+  - guild
+  - trader
+  - social / party
+  - combat / status feedback panels
+- Deliverable:
+  - consistent UI layout system
+  - reusable panel components
+  - better information density and readability
+
+3. Attack / ability / combat system expansion
+- Rework basic attack flow.
+- Expand ability logic and per-class skills.
+- Improve hit detection, cooldowns, resource usage, feedback, and combat resolution.
+- Add clearer enemy and player combat states.
+- Deliverable:
+  - more complete combat loop
+  - better combat events and UI feedback
+  - test coverage for combat behaviors
+
+4. Player visibility and online mode
+- Make two players visible to each other in-game.
+- Finish the online visibility layer.
+- Improve synchronization for spawn, movement, and presence.
+- Verify live multiplayer flow with two active clients.
+- Deliverable:
+  - reliable online mode for seeing other players
+  - synchronized movement/state updates
+  - multiplayer test checklist
+
+5. Trader interface
+- Build a dedicated trader window.
+- Separate trader flow from the raw market debug panel.
+- Support item browse, buy, sell, and status feedback.
+- Align the layout with the provided UI references.
+- Deliverable:
+  - usable in-game trader interface
+  - backend integration for listing and purchase flow
+
+Reference notes
+- The attached screenshots should guide the visual structure.
+- Prefer readable fantasy MMO-style panels over debug-looking UI.
+- Keep everything testable in live playtest mode.

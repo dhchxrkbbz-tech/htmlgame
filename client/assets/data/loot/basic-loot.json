@@ -1,0 +1,71 @@
+{
+  "tableId": "basic-loot",
+  "entries": [
+    {
+      "id": "starter-potion",
+      "name": "Starter Potion",
+      "quantity": 1,
+      "weight": 30,
+      "rarity": "common",
+      "category": "consumable",
+      "description": "A reliable recovery tonic dropped by early tutorial enemies.",
+      "value": 12,
+      "stackable": true
+    },
+    {
+      "id": "field-ration",
+      "name": "Field Ration",
+      "quantity": 1,
+      "weight": 22,
+      "rarity": "common",
+      "category": "consumable",
+      "description": "Travel food that keeps demo parties moving between pulls.",
+      "value": 8,
+      "stackable": true
+    },
+    {
+      "id": "mana-herb",
+      "name": "Mana Herb",
+      "quantity": 1,
+      "weight": 18,
+      "rarity": "common",
+      "category": "reagent",
+      "description": "A low-tier caster reagent gathered around the grove.",
+      "value": 14,
+      "stackable": true
+    },
+    {
+      "id": "arcane-shard",
+      "name": "Arcane Shard",
+      "quantity": 1,
+      "weight": 16,
+      "rarity": "uncommon",
+      "category": "crafting",
+      "description": "A crystal fragment used by traders to prove the loot loop is working.",
+      "value": 28,
+      "stackable": true
+    },
+    {
+      "id": "ward-scroll",
+      "name": "Ward Scroll",
+      "quantity": 1,
+      "weight": 10,
+      "rarity": "uncommon",
+      "category": "utility",
+      "description": "A defensive scroll worth keeping or selling at the camp trader.",
+      "value": 36,
+      "stackable": true
+    },
+    {
+      "id": "crystal-tonic",
+      "name": "Crystal Tonic",
+      "quantity": 1,
+      "weight": 4,
+      "rarity": "rare",
+      "category": "consumable",
+      "description": "A rarer tutorial reward that reads well in both loot and market UI.",
+      "value": 64,
+      "stackable": true
+    }
+  ]
+}

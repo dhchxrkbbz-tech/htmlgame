@@ -1,0 +1,137 @@
+HTMLGame demo TODO
+
+Cél
+- A jelenlegi technikai prototípusból rövid, stabil, bemutatható vertical slice demo készüljön.
+- A demo minimálisan mutassa meg: indítás/login, mozgás, harc, loot/inventory, shop, party/guild/chat, 2 klienses jelenlét.
+
+Jelenlegi állapot
+- [x] `npm test` rendben.
+- [x] `npm run build` rendben.
+- [x] Belépés, mozgás, alap combat, market, party, guild és guild chat implementálva.
+- [ ] A kézi multiplayer playtest és a végső release-candidate kör még nincs teljesen lezárva.
+
+PHASE 1 - Demo baseline lezárása
+
+- [x] 1. Készíts egy garantáltan működő local demo flow-t
+- [x] Login/register/guest flow ellenőrzése egységesen.
+- [x] Boot -> Login -> Game átmenetek finomítása.
+- [x] Default státusz- és hibaszövegek tisztítása.
+- [x] Rövid demo forgatókönyv definiálása 3-5 perc játékra.
+
+- [x] 2. Mozgás és world readability javítása
+- [x] Spawn környezet legyen egyértelműen olvasható.
+- [x] Háttér és térbeli eligazodás javítása egyszerű prop/tile renderrel.
+- [x] Legalább alap vizuális landmarkok kerüljenek a tutorial mapre.
+
+- [x] 3. Combat feedback első kör
+- [x] Enemy health bar vagy health indicator.
+- [x] Floating damage számok.
+- [x] Hit flash vagy rövid találati effekt.
+- [x] Death visszajelzés az enemy pusztulásakor.
+- [x] Combat státuszok tisztább HUD visszajelzése.
+
+- [x] 4. Class skill identity minimum verzió
+- [x] Warrior: legalább stun vagy knockback jellegű hatás.
+- [x] Mage: legalább ranged/AOE érzet külön effektel.
+- [x] Ranger: legalább hosszabb hatótáv és többcélú skill érzet.
+- [x] Cleric: legalább egy valódi heal vagy shield skill.
+- [x] A skill JSON `effect` mezői közül legalább a legfontosabbak legyenek ténylegesen feldolgozva.
+
+PHASE 2 - Loot, inventory, shop teljes loop
+
+- [x] 5. Loot rendszer végigkötése
+- [x] Loot spawnok megjelenítése a mapen.
+- [x] Enemy kill után loot drop vagy legalább garantált demo drop.
+- [x] Pickup interakció implementálása.
+- [x] Loot -> inventory szinkronizálása.
+- [x] Party shared loot státusz vizuális visszajelzése.
+
+- [x] 6. Inventory UX javítása
+- [x] Item slotok olvashatóbb vizuállal.
+- [x] Rarity és quantity jobb megjelenítése.
+- [x] Kijelölt item részletesebb státusza.
+- [x] Drag-drop közben tisztább állapotjelzés.
+
+- [x] 7. Shop / marketplace demóképesítés
+- [x] A jelenlegi market debug panelből trader/shop jellegű felület.
+- [x] Buy/sell/cancel flow vizuális megerősítése.
+- [x] Sikeres vásárlás és listázás egyértelmű feedbackje.
+- [x] Minimum 5-8 demo item a próbához.
+
+PHASE 3 - Social és multiplayer demo
+
+- [ ] 8. Party flow lezárása
+- [ ] Party create/add member/XP flow végigtesztelése két klienssel.
+- [x] Party állapot jobb megjelenítése a HUD-ban vagy panelen.
+- [x] Shared XP és shared loot vizuális naplózása.
+
+- [ ] 9. Guild és chat lezárása
+- [ ] Guild create/join/refresh/chat teljes tesztje két klienssel.
+- [x] Guild chat log stabil és olvasható megjelenítése.
+- [x] Guild állapot frissítésének vizuális visszajelzése.
+
+- [ ] 10. Két klienses multiplayer validáció
+- [ ] Két böngészős kliens vagy launcher + böngésző teszt.
+- [ ] Remote player spawn ellenőrzése.
+- [ ] Mozgás interpoláció ellenőrzése.
+- [ ] Party/guild room sync ellenőrzése.
+- [ ] Combat és loot edge case-ek kézi ellenőrzése.
+- [x] Külön multiplayer test checklist készítése.
+
+PHASE 4 - UI és asset polish
+
+- [x] 11. UI redesign demóra
+- [x] Inventory, shop, guild, party panelek egységes modal rendszerbe húzása.
+- [x] Debug szövegpanelek helyett tisztább MMO jellegű ablakok.
+- [x] HUD hierarchy javítása: HP/MP, quickbar, status, social log.
+- [x] Billentyű-hint és minimál onboarding információk.
+
+- [x] 12. Asset csomag stabilizálása
+- [x] Ellenőrizni, hogy minden szükséges generated asset tényleg be van töltve.
+- [x] Asset generator script dokumentálása.
+- [x] Hiányzó placeholder assetek pótlása.
+- [x] Minimum 1 extra enemy kinézet és 1-2 extra környezeti prop hozzáadása.
+
+- [x] 13. Audio minimum csomag
+- [x] Legalább alap hit, UI click, loot pickup és ambient loop.
+- [x] Hangerő és hiányzó asset fallback kezelése.
+
+PHASE 5 - Demo content és lezárás
+
+- [ ] 14. Rövid vertical slice forgatókönyv
+- [x] Bejelentkezés.
+- [x] Mozgás a tutorial pályán.
+- [x] 1-2 slime harc.
+- [x] Loot felvétel.
+- [x] Item eladás vagy vásárlás.
+- [x] Guild create/join és chat üzenet.
+- [ ] Második kliens megjelenése ugyanabban az instance-ban.
+
+- [x] 15. Tartalmi minimum a demóhoz
+- [x] 1 tutorial map rendesen felöltöztetve.
+- [x] 2 enemy típus.
+- [x] 8-12 használható item.
+- [x] 4 class, mindegyiknél legalább 2 valóban eltérő skillélmény.
+
+- [ ] 16. Release candidate ellenőrzőlista
+- [x] `npm test`
+- [x] `npm run build`
+- [x] szerver indul localban
+- [ ] kliens belép és játék indul
+- [ ] market működik
+- [ ] guild/chat működik
+- [ ] két kliens látja egymást
+- [ ] nincs blokkoló console error
+
+Ajánlott végrehajtási sorrend
+1. Combat feedback
+2. Loot loop
+3. UI modal rendszer
+4. Multiplayer playtest és hibajavítás
+5. Tartalmi bővítés
+6. Audio és végső polish
+
+Mi számít kész demónak
+- [ ] 3-5 percig végigvezethető, látványosan működő flow.
+- [ ] A fő feature-ök nem csak menüből hívhatók, hanem játék közben értelmesen kapcsolódnak egymáshoz.
+- [ ] A build stabilan indítható és kézi teszttel végigjárható.

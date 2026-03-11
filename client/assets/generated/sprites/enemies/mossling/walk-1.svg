@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" fill="none">
+  <defs>
+    <linearGradient id="goldTrim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f9e4aa"/>
+      <stop offset="100%" stop-color="#b88739"/>
+    </linearGradient>
+    <linearGradient id="shadowFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#000" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  
+  <ellipse cx="64" cy="108" rx="24" ry="12" fill="#000" fill-opacity="0.28"/>
+  <ellipse cx="64" cy="72" rx="28" ry="24" fill="#9ad074" fill-opacity="0.22" filter="url(#softGlow)"/>
+  <path d="M32 81 C34 40, 53 24, 64 24 C81 24, 95 41, 96 63 C98 90, 85 108, 64 108 C45 108, 30 95, 32 81 Z" fill="#9ad074" stroke="#f6ffd8" stroke-width="4"/>
+  <path d="M44 50 C48 40, 59 35, 69 35 C79 35, 87 42, 90 52" stroke="#ffffff" stroke-opacity="0.56" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="54" cy="66" r="5" fill="#1f2a2b"/>
+  <circle cx="74" cy="66" r="5" fill="#1f2a2b"/>
+  <path d="M52 82 C58 88, 70 88, 76 82" stroke="#1f2a2b" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="50" cy="96" r="4" fill="#f6ffd8" fill-opacity="0.9"/>
+  <circle cx="78" cy="96" r="4" fill="#f6ffd8" fill-opacity="0.9"/>
+    <path d="M48 34 L42 18 L56 24 L64 12 L72 24 L86 18 L80 34" fill="#d5b66d" stroke="#fff2c8" stroke-width="3" stroke-linejoin="round"/>
+
+</svg>

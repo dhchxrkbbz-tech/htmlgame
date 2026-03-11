@@ -1,0 +1,68 @@
+{
+  "id": "tutorial-grove",
+  "tileSize": 64,
+  "bounds": {
+    "width": 2048,
+    "height": 1536
+  },
+  "terrain": {
+    "baseTile": "env:tile-grass",
+    "patches": [
+      { "texture": "env:tile-platform", "x": 192, "y": 192, "columns": 5, "rows": 3 },
+      { "texture": "env:tile-path", "x": 320, "y": 320, "columns": 7, "rows": 2 },
+      { "texture": "env:tile-path", "x": 640, "y": 448, "columns": 5, "rows": 2 },
+      { "texture": "env:tile-platform", "x": 832, "y": 576, "columns": 4, "rows": 3 }
+    ]
+  },
+  "spawnPoints": [
+    { "x": 320, "y": 320 },
+    { "x": 420, "y": 320 }
+  ],
+  "props": [
+    { "texture": "env:prop-tree", "x": 120, "y": 176, "scale": 1.25 },
+    { "texture": "env:prop-tree", "x": 540, "y": 172, "scale": 1.2 },
+    { "texture": "env:prop-brazier", "x": 250, "y": 300, "scale": 0.95 },
+    { "texture": "env:prop-brazier", "x": 386, "y": 300, "scale": 0.95 },
+    { "texture": "env:prop-obelisk", "x": 448, "y": 260, "scale": 0.88 },
+    { "texture": "env:prop-crystal", "x": 702, "y": 472, "scale": 1.05 },
+    { "texture": "env:prop-mushroom-ring", "x": 850, "y": 560, "scale": 0.92 },
+    { "texture": "env:prop-tree", "x": 1090, "y": 448, "scale": 1.35 },
+    { "texture": "env:prop-tree", "x": 1160, "y": 740, "scale": 1.2 },
+    { "texture": "env:prop-crystal", "x": 940, "y": 604, "scale": 0.9 },
+    { "texture": "env:prop-obelisk", "x": 1208, "y": 628, "scale": 0.84 }
+  ],
+  "landmarks": [
+    { "label": "Adventurer Camp", "x": 320, "y": 224, "color": "#f6f2df", "accent": "#d7c46e" },
+    { "label": "Crystal Path", "x": 704, "y": 414, "color": "#bfe7ff", "accent": "#74c7ff" },
+    { "label": "Slime Clearing", "x": 958, "y": 536, "color": "#d9f3aa", "accent": "#98da61" }
+  ],
+  "enemySpawns": [
+    {
+      "id": "slime-1",
+      "type": "slime",
+      "x": 760,
+      "y": 580,
+      "stats": { "maxHealth": 55, "health": 55, "power": 7, "defense": 2 },
+      "behavior": { "moveSpeed": 45, "chaseRadius": 180, "attackRadius": 42 }
+    },
+    {
+      "id": "slime-2",
+      "type": "slime",
+      "x": 980,
+      "y": 660,
+      "stats": { "maxHealth": 62, "health": 62, "power": 8, "defense": 3 },
+      "behavior": { "moveSpeed": 52, "chaseRadius": 220, "attackRadius": 46 }
+    },
+    {
+      "id": "mossling-1",
+      "type": "mossling",
+      "x": 1130,
+      "y": 560,
+      "stats": { "maxHealth": 78, "health": 78, "power": 10, "defense": 4 },
+      "behavior": { "moveSpeed": 48, "chaseRadius": 210, "attackRadius": 48 }
+    }
+  ],
+  "lootSpawns": [
+    { "id": "loot-1", "x": 845, "y": 612, "table": "basic-loot" }
+  ]
+}

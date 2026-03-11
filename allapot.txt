@@ -1,0 +1,114 @@
+Projekt állapot - 2026-03-11
+
+Állapot: 90/100% kész
+
+Rövid összkép
+
+- A projekt már nem csak scaffold: jelenleg egy végigjátszható, demózható vertical slice állapotban van.
+- A tervben szereplő 1-20 pont mindegyikének van tényleges implementációja a kliensben, backendben, UI-ban, asset pipeline-ban, tesztekben és launcherben.
+- A jelenlegi készültségi szint azért 90%, és nem 100%, mert több terület már működik és bemutatható, de néhány kulcselem még inkább demo/prototípus szinten van, nem teljes production kifinomultságon.
+
+Fő státuszterületek
+
+- UI rendszer: 90%
+  A HUD, inventory, market, party és guild felület ténylegesen össze van rakva, egységes modal shellt használ, van státuszréteg, objective tracker, notification/toast rendszer, drag-drop inventory rendezés, market listing nézet, social activity feed és in-game kezelhető panelek. Ez már kifinomult demo UI, de még nem teljesen végleges production UX.
+
+- Játékmenet: 88%
+  A mozgás, animációk, enemy AI, basic combat loop, class skillek, loot pickup, inventory, trade flow, XP/leveling, halál/respawn, tutorial objective flow és combat feedback ténylegesen működik. A gameplay loop jelenleg koherens és bemutatható, de content depth, balansz és későbbi rendszerbővítés még nyitott.
+
+- Többjátékos mód: 88%
+  Socket.IO alapú instance join, remote player jelenlét, movement sync, interpolált remote mozgás, party/guild szinkron, guild chat, loot/market frissítés és két klienses smoke teszt megvan. A kliensoldali reconciliation most már szerveroldali snapshot sequence és ack irányba is elindult, authoritative world-state visszakéréssel és stale resync logikával. Ez már erősebb multiplayer vertical slice, de teljes production netcode még nincs kész.
+
+- Backend és adatréteg: 89%
+  Auth, marketplace, party, guild, Socket.IO eseménykezelés, in-memory fallback és MongoDB-ready réteg megvan. A marketplace most már erősebb ownership ellenőrzést, külön escrow release ágat és audit logot is tartalmaz. A MongoDB kapcsolat támogatott, de a teljes tartós social migráció és production szintű szabályrendszer még nincs lezárva mindenhol.
+
+- Asset pipeline, tesztelés, launcher: 86%
+  Manifest alapú asset loader, runtime asset audit, generált sprite/texture bootstrap, unit tesztek, Playwright vertical slice smoke, Electron launcher login/update shell működik. A tesztcsomag most már a marketplace audit/escrow szabályokat és a world snapshot sequence logikát is jobban lefedi. A launcher auto-update még lokális/generic provider szemléletű, nem végleges release infrastruktúrára kötött.
+
+Tervpontok szerinti állapot
+
+1. Projekt előkészítés - kész
+  Phaser/Vite kliens és Node.js backend felállítva, npm script struktúra kész.
+
+2. Fájlstruktúra kialakítása - kész
+  A kliens, szerver, shared, launcher, test és asset pipeline struktúra rendezett és különválasztott.
+
+3. Boot scene létrehozása - kész
+  Boot scene betölti a manifestet, kezeli a loading állapotot, futtat asset auditot és indítja a login flow-t.
+
+4. Login / Auth rendszer - kész
+  Login/register/guest flow működik, backend validációval, tokennel és session profillal.
+
+5. Game scene skeleton - kész
+  A GameScene a teljes gameplay hub: world build, player, enemy, UI, audio, network és demo flow összefűzve.
+
+6. Map loader / instancing - kész
+  JSON map betöltés, spawn pontok és instance alapú beléptetés megvan.
+
+7. Player class és movement - kész
+  Warrior, Mage, Ranger, Cleric class rendszer, mozgás és animáció kezelés implementálva.
+
+8. Enemy spawn & AI - kész
+  Spawn rendszer és alap enemy viselkedés bent van; vertical slice szinten működő enemy loop látszik.
+
+9. Combat system - kész
+  Basic attack, class skillek, cooldown, mana, hit radius, effektusok, vizuális feedback és enemy/player combat események működnek.
+
+10. Loot & inventory - kész
+  Látható loot drop, pickup flow, inventory CRUD és item részletező UI működik.
+
+11. Skill rendszer - kész
+  Alap támadás és class-specifikus skillek feldolgozása megvan, több effect típussal.
+
+12. UI komponensek - kész
+  HUD, quickbar, vitals, XP, objective tracker, inventory, market, party és guild felület ténylegesen használható.
+
+13. Marketplace / trading - kész
+  REST/service réteg, listing létrehozás, buy/finalize, cancel, release, seeded trader catalog és kliens trader panel működik. A listing immár a seller valós inventory metadata alapján készül, escrow release útvonal és audit log is van.
+
+14. Party rendszer - kész
+  Party state sync, shared XP, shared loot, invite/accept flow és tagprofil összesítés megvan.
+
+15. Guild rendszer - kész
+  Guild create/join, állapotfrissítés, guild chat és kliens social panel integráció működik.
+
+16. Network sync - kész
+  Movement, combat, loot, party, guild és market update események be vannak kötve; remote player sync jelen van. A rendszer most már snapshot sequence/ack irányba is bővült, így az authoritative state resync stabilabb alapot kapott.
+
+17. Asset management - kész
+  Manifest alapú asset betöltés, generált sprite pipeline, runtime audit és extra generated UI/environment assetek bent vannak.
+
+18. Test & debug framework - kész
+  Unit tesztek és két klienses Playwright smoke flow van. A build és a teszt futtatható állapotban van.
+
+19. Optimization - részben kifinomult, de kész alap
+  Van OptimizationHelper és alap entity visibility kezelés, valamint hálózati throttle. További mély optimalizáció még fejleszthető.
+
+20. Deploy / Launcher - részben kifinomult, de kész alap
+  Electron launcher login/register/guest és update check shell megvan. A valódi release/update provider integráció még nyitott.
+
+Mi számít jelenleg ténylegesen késznek
+
+- Egységes, összerakott UI rendszer a HUD + modal ablakok + social/market/inventory flow köré.
+- Játszható gameplay loop: belépés, mozgás, harc, loot, inventory, trade, progression.
+- Működő többjátékos demo loop: két kliens, remote presence, party/guild sync, chat és market frissítés, javított authoritative resync alappal.
+- Backend CRUD + socket események a vertical slice fő folyamataihoz, erősített marketplace ownership és audit szabályokkal.
+- Asset pipeline, tesztalap és launcher shell.
+
+Mi nincs még 100%-on
+
+- Valódi production szintű MongoDB migráció és teljes tartós social adatkezelés.
+- Teljes production szintű network reconciliation, prediction rollback és szélesebb többklienses stresszvalidáció.
+- Marketplace edge case-ek további szélesítése, különösen konkurens vevői helyzetek és tartós audit riportálás terén.
+- Launcher auto-update valódi providerrel és release pipeline-ba kötve.
+- További content depth, balansz, UX finomítás és szélesebb manuális multiplayer validáció.
+
+Verifikált jelenlegi állapot
+
+- A projekt buildelhető.
+- A meglévő tesztek futnak, beleértve az új marketplace audit/escrow és world snapshot sequence ellenőrzéseket is.
+- A kódbázis alapján a vertical slice útvonal végig van kötve a login -> game -> combat -> loot -> market -> guild -> multiplayer folyamaton.
+
+Végső értékelés
+
+Ez a projekt jelenleg erős demo/vertical-slice állapotban van, teljes tervlefedéssel, kifinomultabb UI-rendszerrel, működő játékmenettel és valós többjátékos alapokkal. A 100% készültséghez már nem az alaprendszerek hiányoznak, hanem a production mélységű stabilizálás, hálózati finomítás, adatmigráció, release infrastruktúra és további polish.

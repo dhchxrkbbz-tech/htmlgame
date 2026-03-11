@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="336" viewBox="0 0 512 336" fill="none">
+  <defs>
+    <linearGradient id="goldTrim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f9e4aa"/>
+      <stop offset="100%" stop-color="#b88739"/>
+    </linearGradient>
+    <linearGradient id="shadowFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#000" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  
+  <rect x="6" y="6" width="500" height="324" rx="26" fill="#0d1718"/>
+  <rect x="10" y="10" width="492" height="316" rx="24" fill="#182624" stroke="url(#goldTrim)" stroke-width="4"/>
+  <rect x="26" y="26" width="460" height="52" rx="16" fill="#27322d" stroke="#5a735f" stroke-width="2"/>
+  <path d="M38 50 H180 M332 50 H474" stroke="#e2c47c" stroke-opacity="0.55" stroke-width="2.5"/>
+  <circle cx="26" cy="26" r="7" fill="#e6c980"/>
+  <circle cx="486" cy="26" r="7" fill="#e6c980"/>
+  <circle cx="26" cy="306" r="7" fill="#e6c980"/>
+  <circle cx="486" cy="306" r="7" fill="#e6c980"/>
+
+</svg>

@@ -1,0 +1,190 @@
+Projekt állapot - 2026-03-10
+
+Elkészült ebben a scaffoldban:
+
+- 1-6: projekt setup, Phaser/Vite kliens, Node.js backend, Boot/Login/Game scene flow, JSON map loader
+- 7-12: player movement, enemy AI, combat, inventory, skill rendszer, HUD alap UI
+- 13: marketplace REST scaffold és in-memory/Mongo kompatibilis service réteg
+- 14-16: party és guild service/route réteg, Socket.IO instance/party/guild sync, kliens HUD panelek, social CRUD panel és interpolált remote player sync
+- 17: manifest-alapú asset loader pipeline és generált animáció/texture bootstrap
+- 18-20: alap unit tesztek, optimization helper, Electron launcher login/update shell
+
+Nyitott következő körökre:
+
+- valós MongoDB futtatás és tartós adatmigráció minden social rendszerhez
+- launcher auto-update valódi providerrel
+- mélyebb network reconciliation a jelenlegi interpolation + stale snapshot kezelés fölé
+- marketplace szerveroldali ownership/escrow szabályok bővítése
+
+## Állapotjelölés
+
+- [x] 1. Projekt előkészítés
+- [x] 2. Fájlstruktúra kialakítása
+- [x] 3. Boot scene létrehozása
+- [x] 4. Login / Auth rendszer
+- [x] 5. Game scene skeleton
+- [x] 6. Map loader / instancing
+- [x] 7. Player class és movement
+- [x] 8. Enemy spawn & AI
+- [x] 9. Combat system
+- [x] 10. Loot & inventory
+- [x] 11. Skill rendszer
+- [x] 12. UI komponensek
+- [x] 13. Marketplace / trading
+- [x] 14. Party rendszer
+- [x] 15. Guild rendszer
+- [x] 16. Network sync
+- [x] 17. Asset management
+- [x] 18. Test & debug framework
+- [x] 19. Optimization
+- [x] 20. Deploy / Launcher
+
+1️⃣ [x] Projekt előkészítés
+
+Hozd létre a VS Code projektet: npm init + Phaser telepítés (npm install phaser)
+
+Telepítsd a GitHub Copilotot, hogy AI segítséggel generálj kódot
+
+2️⃣ [x] Fájlstruktúra kialakítása
+
+/client/assets – sprite, tile, UI
+
+/client/scenes – bootScene, loginScene, gameScene
+
+/client/systems – player, enemy, combat, inventory, skills
+
+/client/network – websocket / Socket.IO
+
+/server – Node.js backend, MongoDB modellek, szerver logika
+
+3️⃣ [x] Boot scene létrehozása
+
+Phaser BootScene inicializálja a canvas-t, asset loadert
+
+AI generálhatja az asset loader kódot, animációk és sprite sheet betöltést
+
+4️⃣ [x] Login / Auth rendszer
+
+Node.js backend + MongoDB
+
+Socket.IO kapcsolat inicializálása
+
+Copilot generálhat login/register kódot, validációval
+
+5️⃣ [x] Game scene skeleton
+
+Inicializáld a GameScene-t, ahol minden map és player spawn történik
+
+Scene switch logika (Boot → Login → Game)
+
+6️⃣ [x] Map loader / instancing
+
+JSON alapú map definíció (spawn pontok, enemy, loot)
+
+Copilot generálhat map betöltő funkciót
+
+Instanced map minden party/player számára
+
+7️⃣ [x] Player class és movement
+
+Class rendszer: Warrior, Mage, Ranger, Cleric
+
+AI generálhat movement + animation scriptet
+
+Sprite sheet alapú animáció (walk, idle, attack)
+
+8️⃣ [x] Enemy spawn & AI
+
+Enemy stat JSON fájlokból
+
+AI generálhat patrol, chase, attack, flee logikát
+
+Spawn rendszer minden instanced mapra
+
+9️⃣ [x] Combat system
+
+Damage formula, skill cooldown, hit detection
+
+AI generálhat combat logikát, skill usage és area effects
+
+Collision detection Phaser physics segítségével
+
+10️⃣ [x] Loot & inventory
+
+Loot table JSON
+
+Inventory CRUD rendszer
+
+AI generálhat inventory management funkciókat, drag-drop logikát
+
+11️⃣ [x] Skill rendszer
+
+Alap attack + 4 skill / class
+
+Cooldown, effect logika
+
+AI generálhat skill damage / area / debuff logikát
+
+12️⃣ [x] UI komponensek
+
+Health bar, mana bar, skill icons
+
+Inventory window, market window
+
+AI generálhat Phaser UI render + interactivity
+
+13️⃣ [x] Marketplace / trading
+
+Node.js backend, item ownership, buy/sell logika
+
+AI generálhat server-side marketplace controller kódot
+
+14️⃣ [x] Party rendszer
+
+4–5 player party support
+
+Shared loot, shared XP
+
+AI generálhat party state sync + UI logikát
+
+15️⃣ [x] Guild rendszer
+
+Guild creation, chat, tags
+
+Backend + frontend logic
+
+AI generálhat guild CRUD + chat integration
+
+16️⃣ [x] Network sync
+
+Socket.IO események: movement, combat, loot, skill usage
+
+Copilot generálhat client-server message handler kódot
+
+17️⃣ [x] Asset management
+
+Sprite, tiles, sound, animation betöltés
+
+AI generálhat loader scriptet, animáció pipeline-t
+
+18️⃣ [x] Test & debug framework
+
+Map spawn, enemy spawn, player movement, skill teszt
+
+Unit test kód AI által generálható
+
+19️⃣ [x] Optimization
+
+Instanced map memory management
+
+Entity culling, update loop optimalizáció
+
+AI generálhat update loop + performance helper scriptet
+
+20️⃣ [x] Deploy / Launcher
+
+Minimal launcher (Electron / web)
+
+Auto-update + login panel
+
+AI generálhat launcher login + update check kódot

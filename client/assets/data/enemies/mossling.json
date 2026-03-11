@@ -1,0 +1,17 @@
+{
+  "id": "mossling",
+  "name": "Mossling Bruiser",
+  "stats": {
+    "maxHealth": 78,
+    "health": 78,
+    "power": 10,
+    "defense": 4,
+    "speed": 48
+  },
+  "behavior": {
+    "patrol": true,
+    "chaseRadius": 210,
+    "attackRadius": 48,
+    "fleeHealthThreshold": 0.18
+  }
+}

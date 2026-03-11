@@ -1,0 +1,17 @@
+{
+  "id": "slime",
+  "name": "Grove Slime",
+  "stats": {
+    "maxHealth": 55,
+    "health": 55,
+    "power": 7,
+    "defense": 2,
+    "speed": 52
+  },
+  "behavior": {
+    "patrol": true,
+    "chaseRadius": 180,
+    "attackRadius": 40,
+    "fleeHealthThreshold": 0.25
+  }
+}
