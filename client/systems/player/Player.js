@@ -31,7 +31,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     this.play(`${this.classKey}-idle`);
   }
 
-  update(delta, cursors, wasd) {
+  update(delta, cursors, wasd, allowMovement = true) {
     this.updateEffects();
     this.updateRegeneration(delta);
 
@@ -43,8 +43,8 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
       return;
     }
 
-    const directionX = Number(cursors.right.isDown || wasd.D.isDown) - Number(cursors.left.isDown || wasd.A.isDown);
-    const directionY = Number(cursors.down.isDown || wasd.S.isDown) - Number(cursors.up.isDown || wasd.W.isDown);
+    const directionX = allowMovement ? Number(cursors.right.isDown || wasd.D.isDown) - Number(cursors.left.isDown || wasd.A.isDown) : 0;
+    const directionY = allowMovement ? Number(cursors.down.isDown || wasd.S.isDown) - Number(cursors.up.isDown || wasd.W.isDown) : 0;
 
     const vector = new Phaser.Math.Vector2(directionX, directionY).normalize();
     this.setVelocity(vector.x * this.speed, vector.y * this.speed);

@@ -30,7 +30,8 @@ export class WindowDock {
         color: "#dbe6de",
       }).setOrigin(0.5, 0);
 
-      background.on("pointerdown", () => {
+      background.on("pointerdown", (_pointer, _localX, _localY, event) => {
+        event?.stopPropagation();
         this.handlers[definition.key]?.();
       });
 

@@ -143,11 +143,19 @@ export class GameScene extends Phaser.Scene {
 
     this.physics.add.collider(this.player, this.enemies);
 
-    this.cursors = this.input.keyboard.createCursorKeys();
-    this.wasd = this.input.keyboard.addKeys("W,A,S,D,Q,E,R,F,I,M,P,G");
+    this.cursors = this.input.keyboard.addKeys({
+      up: Phaser.Input.Keyboard.KeyCodes.UP,
+      down: Phaser.Input.Keyboard.KeyCodes.DOWN,
+      left: Phaser.Input.Keyboard.KeyCodes.LEFT,
+      right: Phaser.Input.Keyboard.KeyCodes.RIGHT,
+    }, false);
+    this.wasd = this.input.keyboard.addKeys("W,A,S,D,Q,E,R,F,I,M,P,G", false);
 
     this.input.on("pointerdown", (pointer) => {
       this.audioSystem.unlock();
+      if (this.isTypingInUi()) {
+        return;
+      }
       if (pointer.leftButtonDown()) {
         const result = this.combatSystem.performBasicAttack();
         if (result) {
@@ -161,20 +169,42 @@ export class GameScene extends Phaser.Scene {
     this.input.keyboard.on("keydown-TWO", () => this.castQuickSlot(1));
     this.input.keyboard.on("keydown-THREE", () => this.castQuickSlot(2));
     this.input.keyboard.on("keydown-FOUR", () => this.castQuickSlot(3));
-    this.input.keyboard.on("keydown-E", () => this.handleLootPickup());
+    this.input.keyboard.on("keydown-E", () => {
+      if (this.isTypingInUi()) {
+        return;
+      }
+
+      this.handleLootPickup();
+    });
     this.input.keyboard.on("keydown-I", () => {
+      if (this.isTypingInUi()) {
+        return;
+      }
+
       this.audioSystem.playUiClick();
       this.toggleInventoryUi();
     });
     this.input.keyboard.on("keydown-M", () => {
+      if (this.isTypingInUi()) {
+        return;
+      }
+
       this.audioSystem.playUiClick();
       this.toggleMarketUi();
     });
     this.input.keyboard.on("keydown-P", () => {
+      if (this.isTypingInUi()) {
+        return;
+      }
+
       this.audioSystem.playUiClick();
       this.togglePartyUi();
     });
     this.input.keyboard.on("keydown-G", () => {
+      if (this.isTypingInUi()) {
+        return;
+      }
+
       this.audioSystem.playUiClick();
       this.toggleGuildUi();
     });
@@ -1043,6 +1073,10 @@ export class GameScene extends Phaser.Scene {
   }
 
   castQuickSlot(index) {
+    if (this.isTypingInUi()) {
+      return;
+    }
+
     const result = this.combatSystem.performSkill(index);
     if (result) {
       this.hud.setStatus(result.summary);
@@ -1055,7 +1089,7 @@ export class GameScene extends Phaser.Scene {
       return;
     }
 
-    this.player.update(delta, this.cursors, this.wasd);
+    this.player.update(delta, this.cursors, this.wasd, !this.isTypingInUi());
     this.demoDirector?.updatePlayerPosition(this.player, this.world);
     this.enemies.children.each((enemy) => enemy.updateAI(this.player, delta));
     this.combatSystem.update(delta);
@@ -1100,5 +1134,15 @@ export class GameScene extends Phaser.Scene {
     this.socialPanel?.destroy();
     this.hud?.destroy();
     this.audioSystem?.destroy();
+  }
+
+  isTypingInUi() {
+    const activeElement = document.activeElement;
+    if (!(activeElement instanceof HTMLElement) || activeElement === document.body) {
+      return false;
+    }
+
+    const tagName = activeElement.tagName;
+    return activeElement.isContentEditable || tagName === "INPUT" || tagName === "TEXTAREA" || tagName === "SELECT";
   }
 }
